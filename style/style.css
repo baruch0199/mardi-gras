@@ -1,0 +1,961 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navigation {
+  position: fixed;
+  top: 0;
+  background-color: rgb(255, 255, 255);
+  /*box shadow x, y, blur */
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid black;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  z-index: 1200;
+}
+
+.navigation-item a {
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: "Henny Penny";
+  color: #0d0d0d;
+  /* font-weight: 700; */
+}
+
+.navigation-item a:hover {
+  color: #5e5e5e;
+}
+
+.navigation-list-logo {
+  margin-right: auto;
+}
+
+.navigation-list-items {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  padding-right: 80px;
+}
+
+.navigation-list-logo {
+  margin-left: 80px;
+}
+
+.logo {
+  position: relative;
+  width: 60px;
+  z-index: 80;
+}
+
+.navigation-item {
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.navigation-item:not(:last-child) {
+  padding-right: 150px;
+}
+
+/*burger navigation for mobile and tablet when closed*/
+/*icon*/
+.navigation-icon {
+  position: relative;
+  margin-right: 70px;
+  cursor: pointer;
+  z-index: 1500;
+}
+
+.navigation-icon,
+.navigation-icon::before,
+.navigation-icon::after {
+  position: fixed;
+  right: 0px;
+  height: 2px;
+  width: 25px;
+  display: inline-block;
+  display: none;
+  background-color: rgb(0, 0, 0);
+  z-index: 1500;
+}
+
+.navigation-icon::before,
+.navigation-icon::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+}
+
+.background-for-strips {
+  position: fixed;
+  top: 21px;
+  right: 67px;
+  z-index: 4000;
+  height: 25px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.navigation-icon::before {
+  top: 7px;
+}
+.navigation-icon::after {
+  top: -7px;
+}
+
+.navigation-checkbox {
+  display: none;
+}
+
+/* burger navigation for mobile and tablet when opened */
+.background-navigation-opened {
+  position: fixed;
+  background-color: #f2cc0f;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  margin-right: -105vw;
+  transition: all 1s;
+  overflow: hidden;
+  z-index: 500;
+}
+
+.navigation-checkbox:checked ~ .background-navigation-opened {
+  margin-right: 0;
+  z-index: 50;
+}
+.amburger-links {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #e0bf18;
+  list-style: none;
+  flex-direction: column;
+}
+
+.amburger-links a {
+  font-family: "Pattaya";
+  text-decoration: none;
+  font-size: 30px;
+  color: #0d0d0d;
+}
+
+.amburger-links a:hover {
+  color: #f2f2f2;
+}
+
+.amburger-links li:not(:last-child) {
+  margin-bottom: 20px;
+}
+/* end */
+
+/*SLIDER*/
+.images-slider {
+  overflow: hidden;
+  margin-top: -400px;
+}
+
+.radio-btns {
+  display: flex;
+  position: relative;
+}
+
+.radio-btns input {
+  display: none;
+}
+.images-slider img {
+  width: 100vw;
+}
+
+.manualy-sliding {
+  position: relative;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 120px;
+  left: 0;
+}
+
+.Diagonal-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  width: 100vw;
+  height: 100%;
+  clip-path: polygon(0 99.2%, 100% 95%, 100% 100%, 0 100%);
+}
+
+/* end */
+
+.circle-radio-btn:not(:last-child) {
+  margin-right: 30px;
+}
+
+.circle-radio-btn {
+  display: block;
+  border: 3px solid #f2cc0f;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  transition: all 1s;
+}
+
+.circle-radio-btn:hover {
+  background-color: #f2cc0f;
+}
+
+#radio-btn-1:checked ~ .first-image {
+  margin-left: -100vw;
+  transition: 1s;
+}
+/* CHECKED DESIGNED BUTTONS - ADD BACKGROUND COLOR AND SCALE */
+#radio-btn-1:checked ~ .manualy-sliding .circle-radio-btn-1 {
+  background-color: #f2cc0f;
+  transform: scale(1.2);
+}
+
+#radio-btn-2:checked ~ .manualy-sliding .circle-radio-btn-2 {
+  background-color: #f2cc0f;
+  transform: scale(1.2);
+}
+
+#radio-btn-3:checked ~ .manualy-sliding .circle-radio-btn-3 {
+  background-color: #f2cc0f;
+  transform: scale(1.2);
+}
+
+#radio-btn-4:checked ~ .manualy-sliding .circle-radio-btn-4 {
+  background-color: #f2cc0f;
+  transform: scale(1.2);
+}
+/* CHECKED DESIGNED BUTTONS - MOVE IMAGE */
+#radio-btn-2:checked ~ .first-image {
+  margin-left: -200vw;
+  transition: 1s;
+}
+
+#radio-btn-3:checked ~ .first-image {
+  margin-left: -300vw;
+  transition: 1s;
+}
+#radio-btn-4:checked ~ .first-image {
+  margin-left: 0;
+  transition: 1s;
+}
+
+@media only screen and (max-width: 1600px) {
+  .images-slider {
+    margin-top: 0;
+  }
+}
+
+/*providers*/
+.cards-title {
+  font-family: "Pattaya", "Henny Penny";
+  font-weight: 100;
+  text-transform: capitalize;
+  border-bottom: 3px solid #9453a6;
+  margin-left: 100px;
+  margin-top: 60px;
+  display: inline-block;
+}
+.cards {
+  /* background-color: #ccc; */
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  padding: 0px 80px;
+  margin-bottom: 50px;
+}
+
+.cards-all {
+  font-size: 16px;
+  color: rgb(0, 0, 0);
+  /* margin: 20px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 1 25%;
+  height: 400px;
+  padding: 20px 20px;
+}
+
+.card-all-image {
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 1);
+  border-radius: 1%;
+  box-shadow: 12px 12px 20px 0px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  width: 100%;
+}
+
+.card-all-image-1,
+.card-all-image-2,
+.card-all-image-3,
+.card-all-image-4,
+.card-all-image-5,
+.card-all-image-6,
+.card-all-image-7,
+.card-all-image-8 {
+  width: 100%;
+  height: 50%;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.card-all-image-1 {
+  background-image: url("../pictures/Bistreaux.jpg");
+}
+.card-all-image-2 {
+  background-image: url("../pictures/sharleton.jpg");
+}
+.card-all-image-3 {
+  background-image: url("../pictures/ace.jpg");
+}
+.card-all-image-4 {
+  background-image: url("../pictures/ritz-charleton.jpg");
+}
+.card-all-image-5 {
+  background-image: url("../pictures/parking.jpg");
+}
+.card-all-image-6 {
+  background-image: url("../pictures/children.jpg");
+}
+.card-all-image-7 {
+  background-image: url("../pictures/musiam-of-death.jpg");
+}
+.card-all-image-8 {
+  background-image: url("../pictures/hunted-musium.jpg");
+}
+
+.card-all-caption {
+  font-family: Roboto, sans-serif;
+  position: absolute;
+  bottom: 90px;
+  left: 40px;
+  margin-right: 40px;
+  font-size: 19px;
+}
+
+.card-all-text {
+  font-family: Roboto, sans-serif;
+  position: absolute;
+  bottom: 70px;
+  left: 50px;
+}
+
+.card-all-btn {
+  font-family: "Roboto";
+  color: #f2cc0f;
+  position: absolute;
+  bottom: 30px;
+  left: 50px;
+}
+
+@media only screen and (max-width: 1660px) {
+  /* SLIDER */
+  .images-slider {
+    margin-top: -200px;
+  }
+}
+
+@media only screen and (max-width: 1500px) {
+  /* SLIDER */
+  .images-slider {
+    margin-top: -100px;
+  }
+  .navigation-item:not(:last-child) {
+    padding-right: 100px;
+  }
+
+  .cards {
+    padding: 100px 80px;
+    padding-top: 0;
+  }
+  .cards-all {
+    flex: 0 1 50%;
+    padding: 20px 20px;
+  }
+
+  /* .item-9 {
+    display: none;
+  } */
+
+  .card-all-image {
+    border-radius: 0;
+    width: 100%;
+  }
+
+  .card-all-image::after {
+    border-radius: 0;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .cards {
+    padding-top: 0;
+    margin-bottom: 0;
+  }
+  .navigation-list-logo {
+    margin-left: 70px;
+  }
+  .navigation .navigation-icon {
+    margin-right: 70px;
+  }
+
+  .navigation-icon {
+    top: 33px;
+  }
+
+  .navigation-icon,
+  .navigation-icon::before,
+  .navigation-icon::after {
+    display: inline-block;
+  }
+
+  .navigation-list-items {
+    display: none;
+  }
+
+  .images-slider {
+    margin-top: 50px;
+  }
+
+  .manualy-sliding {
+    bottom: 70px;
+  }
+
+  .circle-radio-btn {
+    width: 26px;
+    height: 26px;
+  }
+
+  .circle-radio-btn:not(:last-child) {
+    margin-right: 20px;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .cards-title {
+    margin-left: 80px;
+  }
+  .gallery-image {
+    flex: 1 0 50%;
+  }
+  .navigation-icon {
+    top: 33px;
+  }
+
+  .cards {
+    padding-top: 0px;
+  }
+
+  .cards-all {
+    flex: 1 1 100%;
+    padding: 20px 0px;
+  }
+  .images-slider {
+    margin-top: 0px;
+  }
+
+  .circle-radio-btn {
+    width: 20px;
+    height: 20px;
+  }
+
+  .circle-radio-btn:not(:last-child) {
+    margin-right: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .cards-title {
+    margin-left: 40px;
+    margin-right: 0;
+    /* margin: 60px auto; */
+    margin-bottom: 10px;
+  }
+  .card-all-image {
+    border-left: 0;
+    border-right: 0;
+  }
+
+  .card-all-image-1 {
+    background-size: cover;
+    background-position: bottom;
+  }
+
+  .card-all-image-2 {
+    background-size: cover;
+    background-position: bottom;
+  }
+
+  .navigation-icon {
+    top: 40px;
+  }
+  .navigation {
+    padding: 5px 0px;
+    z-index: 1200;
+  }
+
+  .logo {
+    width: 60px;
+  }
+  .cards {
+    padding: 100px 0px;
+    padding-top: 0;
+  }
+
+  .cards-all {
+    flex: 1 1 100%;
+    padding: 20px 0px;
+  }
+  .images-slider {
+    margin-top: 50px;
+  }
+
+  .manualy-sliding {
+    bottom: 50px;
+  }
+
+  .circle-radio-btn {
+    width: 16px;
+    height: 16px;
+  }
+
+  .circle-radio-btn:not(:last-child) {
+    margin-right: 15px;
+  }
+}
+
+.footer {
+  background-color: #f2cc0f;
+  width: 100%;
+  height: 400px;
+  clip-path: polygon(0 9%, 100% 0, 100% 100%, 0 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  font-family: "Henny Penny";
+  text-decoration: none;
+  text-transform: capitalize;
+  color: #0d0d0d;
+  border-bottom: 2px solid #9453a6;
+}
+
+.footer-links a:not(:last-child) {
+  margin-right: 20px;
+}
+
+.footer-text {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  margin: 0 80px;
+}
+
+/*for media page*/
+
+.section-video {
+  margin: 30px 0;
+  margin-bottom: 80px;
+}
+.video {
+  margin: 0px 50px;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  background-color: #f2f2f2;
+}
+.video-title {
+  margin-left: 50px;
+  margin-bottom: 30px;
+  font-family: "Pattaya";
+  font-weight: 100;
+  border-bottom: 2px solid #9453a6;
+  display: inline-block;
+}
+
+@media only screen and (max-width: 1300px) {
+  iframe {
+    width: 640px;
+    height: 360px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  iframe {
+    flex: 1 1 100%;
+  }
+}
+
+.column {
+  flex: 1 1 50%;
+}
+.gllery-title {
+  font-family: "Pattaya", "Henny Penny";
+  font-weight: 100;
+  text-transform: capitalize;
+  border-bottom: 3px solid #9453a6;
+  margin-left: 50px;
+  margin-top: 60px;
+  display: inline-block;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px 40px;
+  justify-content: flex-start;
+}
+
+.gallery-image {
+  flex: 1 0 33%;
+  padding: 0 10px;
+}
+
+.gallery-image img {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 1%;
+}
+
+.gallery-image:not(:last-child) {
+  padding-bottom: 10px;
+}
+
+.gallery-image-popup {
+  width: 400px;
+  transition: all 0.5s;
+}
+
+#popup-1,
+#popup-2,
+#popup-3,
+#popup-4,
+#popup-5,
+#popup-6,
+#popup-7,
+#popup-8,
+#popup-9 {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  background-color: rgba(226, 226, 226, 0.4);
+  top: 0;
+  left: 0;
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#popup-1:target,
+#popup-2:target,
+#popup-3:target,
+#popup-4:target,
+#popup-5:target,
+#popup-6:target,
+#popup-7:target,
+#popup-8:target,
+#popup-9:target {
+  opacity: 1;
+  visibility: visible;
+}
+
+#popup-1:target .gallery-image-popup,
+#popup-2:target .gallery-image-popup,
+#popup-3:target .gallery-image-popup,
+#popup-4:target .gallery-image-popup,
+#popup-5:target .gallery-image-popup,
+#popup-6:target .gallery-image-popup,
+#popup-7:target .gallery-image-popup,
+#popup-8:target .gallery-image-popup,
+#popup-9:target .gallery-image-popup {
+  transform: scale(1.5);
+}
+
+.section-gallery {
+  position: relative;
+}
+
+.box-exit-popup {
+  position: absolute;
+  width: 600px;
+  height: 500px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.exit-link-location {
+  position: absolute;
+  top: 10px;
+  right: -7px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .gallery-image {
+    flex: 0 0 50%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .gllery-title {
+    margin-left: 30px;
+  }
+  .gallery {
+    padding: 30px 20px;
+  }
+  .gallery-image {
+    flex: 1 0 100%;
+  }
+}
+
+/************************** faq ************************/
+
+.section-accordion {
+  width: 70vw;
+  margin: 70px auto;
+}
+
+.accordion-all {
+  appearance: none;
+  width: 0; /* to remove the input field */
+  border: 0px;
+  display: block;
+}
+
+.accordion {
+  position: relative;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.faq-title {
+  font-family: "Pattaya", "Henny Penny";
+  font-weight: 100;
+  text-transform: capitalize;
+  border-bottom: 3px solid #9453a6;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.chack1,
+.chack2,
+.chack3,
+.chack4 {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 50px;
+  appearance: none;
+  border-radius: 5%;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
+  background-color: rgb(243, 243, 243);
+  padding-left: 20px;
+  padding-top: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.chack1::before {
+  content: "question 1";
+}
+
+.chack2::before {
+  content: "question 2";
+}
+
+.chack3::before {
+  content: "question 3";
+}
+
+.chack4::before {
+  content: "question 4";
+}
+
+.chack1::after,
+.chack2::after,
+.chack3::after,
+.chack4::after {
+  content: "v";
+  padding-right: 15px;
+}
+
+.background {
+  padding-top: 55px;
+  padding-left: 40px;
+  background-color: rgb(248, 248, 248);
+  max-width: 100%;
+  height: 0px;
+  /* word-break: break-all; */
+  visibility: hidden;
+  transition: all 1s;
+  overflow: hidden;
+}
+
+.chack1:checked + .background,
+.chack2:checked + .background,
+.chack3:checked + .background,
+.chack4:checked + .background {
+  height: 160px;
+  visibility: visible;
+}
+
+.chack1:checked.chack1::after,
+.chack2:checked.chack2::after,
+.chack3:checked.chack3::after,
+.chack4:checked.chack4::after {
+  content: "^";
+}
+
+/*about section*/
+.about {
+  margin: 100px 200px;
+}
+
+.about-title {
+  font-family: "Pattaya", "Henny Penny";
+  font-weight: 100;
+  text-transform: capitalize;
+  border-bottom: 3px solid #9453a6;
+  padding-bottom: 5px;
+  margin-bottom: 22px;
+  display: inline-block;
+}
+
+.about-paragrap {
+  font-size: 17px;
+}
+
+.about-paragrap:not(:last-child) {
+  padding-bottom: 20px;
+}
+
+@media only screen and (max-width: 1660px) {
+  .about {
+    margin-left: 130px;
+    margin-right: 130px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .about {
+    margin-left: 120px;
+    margin-right: 120px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .about {
+    margin: 70px 0;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}
+
+.hero-picture {
+  background-image: url("../pictures/ritz-charleton.jpg");
+  background-size: cover;
+  background-position: center;
+
+  height: 50vh;
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .hero-picture {
+    display: block;
+  }
+
+  .images-slider {
+    display: none;
+  }
+}
+
+/******************form********************/
+.form-section {
+  width: 60%;
+  margin: 150px auto;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+.form .form-input {
+  border-radius: 4px;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  padding: 0 30px;
+}
+
+.form .form-label-input {
+  text-transform: uppercase;
+  font-family: "Pattaya";
+}
+
+.field:not(:last-child) {
+  margin-right: 70px;
+}
+
+#text-area {
+  background-color: #f2f2f2;
+}
+
+@media only screen and (max-width: 1300px) {
+  .form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-label-input {
+    display: none;
+  }
+
+  .form .form-input {
+    padding-right: 240px;
+    padding-left: 0px;
+  }
+
+  .field {
+    margin-bottom: 40px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .form .form-input {
+    padding-right: 130px;
+    padding-left: 0px;
+  }
+}
